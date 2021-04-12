@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  flex-wrap:wrap;
+  gap: 32px;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (--md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

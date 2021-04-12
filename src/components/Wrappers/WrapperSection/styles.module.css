@@ -1,0 +1,23 @@
+.section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20rem 0;
+  content-visibility: auto;
+
+  &[variant="background-light"]{
+    background-color: var(--color--primary-2);
+  }
+
+  & > div {
+    width: 90%;
+
+    @media(--sm) {
+      width: 80%;
+    }
+
+    @media(--lg) {
+      width: 60%;
+    }
+  }
+}

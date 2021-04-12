@@ -1,0 +1,69 @@
+:root {
+  --font--1: 400 16rem/1.2 Rubik;
+}
+
+::-moz-selection {
+  background-color: var(--color--primary-1);
+  color: white;
+}
+
+::selection {
+  background-color: var(--color--primary-1);
+  color: white;
+}
+
+html {
+  font-size: 6.25%; /* 1rem = 1px */
+}
+
+body {
+  font: var(--font--1);
+}
+
+:is(h1, h2, h3, h4, h5, h6, p) {
+  --min-font-size: 16;
+  --max-font-size: 24;
+
+  --max-width: 1200;
+  --min-width: 320;
+
+  /* < min-width */
+  --font-size: calc(var(--min-font-size) * 1rem);
+
+  /* >= min-width and < max-width */
+  @media (--xs) {
+    --font-size: calc(
+      (var(--min-font-size) * 1rem) + (var(--max-font-size) - var(--min-font-size)) *
+        ((100vw - var(--min-width) * 1rem) / (var(--max-width) - var(--min-width)))
+    );
+  }
+
+  /* >= max-width */
+  @media (--xl) {
+    --font-size: calc(var(--max-font-size) * 1rem);
+  }
+
+  font: inherit;
+  font-size: var(--font-size);
+  margin: 0;
+}
+
+h1 {
+  --min-font-size: 48;
+  --max-font-size: 64;
+}
+
+h2 {
+  --min-font-size: 40;
+  --max-font-size: 56;
+}
+
+h3 {
+  --min-font-size: 32;
+  --max-font-size: 48;
+}
+
+h4 {
+  --min-font-size: 24;
+  --max-font-size: 40;
+}

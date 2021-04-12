@@ -1,0 +1,39 @@
+.fieldset {
+  display: inline-block;
+
+  &[variant="full-width"] {
+    width: 100%;
+  }
+
+  &[info="width"] {
+    & legend::after {
+      content: "-xs";
+
+      @media (--sm) {
+        content: "-sm";
+      }
+
+      @media (--md) {
+        content: "-md";
+      }
+
+      @media (--lg) {
+        content: "-lg";
+      }
+
+      @media (--xl) {
+        content: "-xl";
+      }
+    }
+  }
+
+  & legend {
+    font-size: 14rem;
+    user-select: none;
+  }
+}
+
+.description {
+  display: block;
+  font-size: 10rem;
+}

@@ -1,0 +1,74 @@
+.common {
+  --icon-size: var(--font-size, 32rem);
+  --icon-size-half: calc(max(var(--icon-size) / 2, 16rem));
+  --spacing: calc(max(var(--icon-size) / 9, 4rem));
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  text-decoration: inherit;
+}
+
+.button {
+  composes: common;
+  composes: button from "../../Buttons/Button/styles.module.css";
+}
+
+.link {
+  composes: common;
+
+  color: inherit;
+  transition: color 0.25s;
+
+  &:hover {
+    color: var(--color--primary-1);
+  }
+
+  &[variant="external"] {
+    & .iconExternal {
+      display: inline-flex;
+      transform: translate(0%, -50%);
+
+      & svg {
+        display: inline-block;
+        height: var(--icon-size-half);
+        width: var(--icon-size-half);
+      }
+    }
+  }
+
+  &[variant="icon-after"] .icon {
+    order: 1;
+
+    & + .content {
+      margin-left: 0px;
+      margin-right: var(--spacing);
+    }
+  }
+
+  & .icon {
+    display: inline-flex;
+    align-items: center;
+
+    &::before {
+      content: "|";
+      opacity: 0;
+      user-select: none;
+      width: var(--icon-size-half);
+    }
+
+    & svg {
+      position: relative;
+      display: inline-block;
+      height: calc(var(--icon-size));
+      width: calc(var(--icon-size));
+      left: calc(var(--icon-size-half) * -1);
+      margin-right: calc(var(--icon-size-half) * -1);
+    }
+
+    & + .content {
+      margin-left: var(--spacing);
+    }
+  }
+}
